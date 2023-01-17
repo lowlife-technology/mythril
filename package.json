@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "workspaces": [
+    "services/*",
+    "tools/*"
+  ],
+  "devDependencies": {
+    "typescript": "^4.9.4",
+    "@mythril/eslint-config": "*"
+  }
+}
