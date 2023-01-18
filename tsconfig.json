@@ -5,6 +5,7 @@
     "allowUmdGlobalAccess": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
     "strict": true,
     "skipLibCheck": true
   }

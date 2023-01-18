@@ -2,7 +2,8 @@
   "private": true,
   "workspaces": [
     "services/*",
-    "tools/*"
+    "tools/*",
+    "web/*"
   ],
   "devDependencies": {
     "typescript": "^4.9.4",

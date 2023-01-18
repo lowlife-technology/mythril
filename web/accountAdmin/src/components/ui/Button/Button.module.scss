@@ -1,0 +1,43 @@
+.button {
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 100px;
+  border-radius: 3px;
+  background-color: lighten(black, 40%);
+
+  &Disabled {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 3px;
+    background-color: lighten(black, 20%);
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: lighten(black, 60%);
+  }
+
+  &:active {
+    cursor: grabbing;
+    background-color: lighten(black, 80%);
+  }
+
+  &:active > &__title {
+    cursor: grabbing;
+    color: lighten(black, 60%);
+  }
+
+  &Title {
+    letter-spacing: 2px;
+    color: black;
+
+    &Disabled {
+      letter-spacing: 2px;
+      color: lighten(black, 30%);
+    }
+  }
+}

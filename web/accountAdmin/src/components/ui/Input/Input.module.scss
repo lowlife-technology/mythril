@@ -1,0 +1,58 @@
+.container {
+  margin: 18px 0;
+  position: relative;
+}
+
+.input {
+  background-color: lighten(black, 10%);
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.6;
+  color: lighten(black, 60%);
+
+  border: none;
+  border-radius: 3px;
+  padding: 20px;
+  height: 40px;
+  width: 400px;
+
+  &__error {
+    background-color: #1a1111;
+    color: lighten(#1a1111, 40%);
+
+    &:focus {
+      outline: 1px solid lighten(#1a1111, 10%) !important;
+    }
+
+    &::selection {
+      color: lighten(#1a1111, 60%);
+      background-color: darken(#1a1111, 6%);
+    }
+  }
+
+  &::placeholder {
+    color: lighten(black, 40%);
+  }
+
+  &:focus {
+    outline: 1px solid lighten(black, 20%);
+  }
+}
+
+.label {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.6;
+  color: lighten(black, 60%);
+}
+
+.message {
+  position: absolute;
+  bottom: -20px;
+
+  &__error {
+    color: lighten(#1a1111, 40%);
+  }
+}
