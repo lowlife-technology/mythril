@@ -7,6 +7,11 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@mythirl/black-velvet": ["./(blackVelvet)"]
+    }
   }
+
+  // "include": ["**/*.ts", "**/*.tsx"]
 }

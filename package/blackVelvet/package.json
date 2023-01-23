@@ -1,0 +1,10 @@
+{
+  "name": "@mythril/black-velvet",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "rm -rf ./build && yarn tsc"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  }
+}

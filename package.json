@@ -2,11 +2,15 @@
   "private": true,
   "workspaces": [
     "services/*",
-    "tools/*",
+    "package/*",
     "web/*"
   ],
+  "scripts": {},
   "devDependencies": {
-    "typescript": "^4.9.4",
-    "@mythril/eslint-config": "*"
+    "@mythril/eslint-config": "*",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0"
   }
 }

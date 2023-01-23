@@ -1,27 +1,31 @@
-import { gql, ApolloClient, InMemoryCache } from "@apollo/client";
-import { useCallback, useEffect } from "react";
-import { CreateAccountWidget } from "./components/widgets/CreateAccountWidget";
-
-export const uri = "http://localhost:3000";
-
-export const client = new ApolloClient({
-  uri,
-  cache: new InMemoryCache(),
-});
+import { useState } from "react";
+import { AccountWidget } from "@mythril/black-velvet";
+import { addIdentity, IAddIdentityData } from "./graphql/login/addIdentity";
 
 const App = () => {
-  const getIdentityList = async () => {
+  const [form, setForm] = useState([
+    { key: "name", value: "", label: "A name of your choice," },
+    { key: "email", value: "", label: "an eletronic mail," },
+    { key: "password", value: "", label: "and finally, a password." },
+  ]);
+
+  const getFormValues = () => {
+    let obj = { email: "" } satisfies IAddIdentityData;
+
+    form.forEach(({ value, key }) => (obj = { ...obj, [key as keyof typeof obj]: value }));
+
+    return obj;
+  };
+
+  const onChange = (event: any, input: any, index: number) => {
+    const formCopy = [...form];
+    formCopy[index].value = event.target.value;
+    setForm(formCopy);
+  };
+
+  const submitHandler = async () => {
     try {
-      const res = await client.query({
-        query: gql`
-          query GetIdentityList {
-            getIdentityList {
-              id
-              email
-            }
-          }
-        `,
-      });
+      const res = await addIdentity(getFormValues());
 
       console.log(res);
     } catch (error) {
@@ -29,12 +33,9 @@ const App = () => {
     }
   };
 
-  const getIdentityListCallback = useCallback(getIdentityList, [getIdentityList]);
-
   return (
     <div>
-      <CreateAccountWidget />
-      {/* <button onClick={getIdentityListCallback}>getIdentityList</button> */}
+      <AccountWidget form={form} onChange={onChange} onSubmit={submitHandler} />
     </div>
   );
 };
